@@ -1,4 +1,5 @@
-const socket = io("https://businessserver-7x7f.onrender.com");
+console.log("Dashboard.js loaded");
+//const socket = io("https://businessserver-7x7f.onrender.com");
 
 const userId = localStorage.getItem("userId");
 
@@ -19,10 +20,9 @@ async function loadDashboard() {
 
     try {
 
-        const res = await fetch(
-            `
-              https://businessserver-7x7f.onrender.com/api/dashboard/status/${userId}`
-        );
+       const res = await fetch(
+`https://businessserver-7x7f.onrender.com/api/dashboard/status/${userId}`
+);
 
         console.log("Status:", res.status);
 
