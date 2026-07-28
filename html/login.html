@@ -8,18 +8,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Login</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <link rel="stylesheet" href="css/login.css">
 
 </head>
 
 <body>
+    
 
 <div class="container">
 
     <div class="card">
+        <img src="images/logo.png"
+     class="login-logo"
+     alt="Emdanforvin Logo">
 
-        <h1>Emdanforvin</h1>
+        
 
         <h3>Welcome Back</h3>
 
@@ -32,12 +38,26 @@
                 required
             >
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-            >
+           <div class="password-box">
+
+<input
+type="password"
+id="password" placeholder="Password" required >
+
+<span id="togglePassword">
+<i class="fa-solid fa-eye"></i>
+</span>
+
+</div>
+<div class="forgot">
+
+<a href="forgot-password.html">
+
+Forgot Password?
+
+</a>
+
+</div>
 
             <button type="submit">
 

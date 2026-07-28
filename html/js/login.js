@@ -5,7 +5,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const email = document.getElementById("email").value.trim();
 
     const password = document.getElementById("password").value;
-
+   
     try {
 
         const response = await fetch(
@@ -63,3 +63,28 @@ else {
     }
 
 });
+ const password =
+document.getElementById("password");
+
+const toggle =
+document.getElementById("togglePassword");
+
+toggle.onclick = ()=>{
+
+if(password.type==="password"){
+
+password.type="text";
+
+toggle.innerHTML=
+'<i class="fa-solid fa-eye-slash"></i>';
+
+}else{
+
+password.type="password";
+
+toggle.innerHTML=
+'<i class="fa-solid fa-eye"></i>';
+
+}
+
+};

@@ -115,3 +115,96 @@ p{
 margin-top:20px;
 
 }
+.auth-logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.auth-logo img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    margin-bottom:12px;
+}
+
+.auth-logo h2{
+    margin:0;
+    color:#0B2E6B;
+    font-size:30px;
+}
+
+.auth-logo p{
+    margin-top:8px;
+    color:#666;
+}
+.login-logo{
+
+    width:110px;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+}
+
+.password-box{
+
+    position:relative;
+
+}
+
+.password-box input{
+
+    width:100%;
+
+    padding-right:45px;
+
+}
+
+.password-box span{
+
+    position:absolute;
+
+    right:15px;
+
+    top:37%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+
+.password-box span:hover{
+
+    color:#2d57d4;
+
+}
+
+.forgot{
+
+    text-align:right;
+
+    margin-top:12px;
+
+    margin-bottom:20px;
+
+}
+
+.forgot a{
+
+    text-decoration:none;
+
+    color:#2d57d4;
+
+    font-size:14px;
+
+}
+
+.forgot a:hover{
+
+    text-decoration:underline;
+
+}
