@@ -1,7 +1,70 @@
 const container = document.getElementById("questions");
 const userId = localStorage.getItem("userId");
 
+const timerElement = document.getElementById("timer");
 
+let timeLeft = 40;
+
+let timer;
+
+function startTimer(){
+
+const storageKey = `quizTimer_${userId}`;
+
+const saved = localStorage.getItem(storageKey);
+
+if(saved){
+
+timeLeft = parseInt(saved);
+
+}
+
+timer = setInterval(()=>{
+
+timeLeft--;
+
+localStorage.setItem(storageKey,timeLeft);
+
+const minutes = Math.floor(timeLeft/60);
+
+const seconds = timeLeft % 60;
+
+timerElement.innerText =
+`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+if(timeLeft<=20){
+
+timerElement.style.color="#f59e0b";
+
+}
+
+if(timeLeft<=10){
+
+timerElement.style.color="#ef4444";
+
+timerElement.classList.add("flash");
+
+}
+
+if(timeLeft<=0){
+
+clearInterval(timer);
+
+localStorage.removeItem(storageKey);
+
+alert("Time is up!");
+
+document.getElementById("questionForm").requestSubmit();
+
+}
+
+},1000);
+
+}
+
+clearInterval(timer);
+
+localStorage.removeItem(`quizTimer_${userId}`);
 async function loadQuestions() {
 
     const res = await fetch(
@@ -81,6 +144,7 @@ const questions = data.questions;
     });
 
     container.innerHTML = html;
+    startTimer();
 
 }
 

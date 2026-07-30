@@ -238,16 +238,33 @@ const sidebar = document.getElementById("sidebar");
 
 const overlay = document.getElementById("overlay");
 
+function closeSidebar(){
+
+    sidebar.classList.remove("show");
+
+    overlay.classList.remove("show");
+
+    document.body.classList.remove("sidebar-open");
+
+}
+
 menuBtn.onclick = () => {
 
-    sidebar.classList.toggle("show");
+    sidebar.classList.add("show");
 
-    overlay.classList.toggle("show");
+    overlay.classList.add("show");
 
-    document.body.classList.toggle("sidebar-open");
+    document.body.classList.add("sidebar-open");
 
 };
-/* ===============================
+
+overlay.onclick = closeSidebar;
+
+document.querySelectorAll(".sidebar a").forEach(link => {
+
+    link.addEventListener("click", closeSidebar);
+
+});/* ===============================
    PROFILE MENU
 ================================ */
 
