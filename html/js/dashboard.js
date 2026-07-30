@@ -93,9 +93,11 @@ async function loadProfile() {
         document.getElementById("referralWallet").innerText =
             "GHS " + Number(user.referral_balance).toFixed(2);
 
-        document.getElementById("referralCode").innerText =
-            user.referral_code || "--------";
+        const referralLink =
+`https://emdanforvin.vercel.app/register.html?ref=${user.referral_code}`;
 
+document.getElementById("referralLink").value =
+referralLink;
     }
 
     catch(err){
@@ -152,17 +154,60 @@ async function loadReferrals() {
 /* ===============================
    COPY REFERRAL
 ================================ */
-
 document
 .getElementById("copyReferralBtn")
-.addEventListener("click", () => {
+.addEventListener("click",()=>{
 
-    const code =
-        document.getElementById("referralCode").innerText;
+const link =
+document.getElementById("referralLink").value;
 
-    navigator.clipboard.writeText(code);
+navigator.clipboard.writeText(link);
 
-    alert("Referral code copied.");
+alert("Referral link copied.");
+
+});
+document
+.getElementById("shareReferralBtn")
+.addEventListener("click",async()=>{
+
+const link =
+document.getElementById("referralLink").value;
+
+const message =
+
+`🔥 I earned GHS 300 from just answering questions on Emdanforvin!
+
+Join me today and start earning every week.
+
+👇 Register using my referral link:
+
+${link}`;
+
+if(navigator.share){
+
+try{
+
+await navigator.share({
+
+title:"Join Emdanforvin",
+
+text:message
+
+});
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}else{
+
+navigator.clipboard.writeText(message);
+
+alert("Referral message copied.");
+
+}
 
 });
 
@@ -182,16 +227,9 @@ menuBtn.onclick = () => {
 
     overlay.classList.toggle("show");
 
-};
-
-overlay.onclick = () => {
-
-    sidebar.classList.remove("show");
-
-    overlay.classList.remove("show");
+    document.body.classList.toggle("sidebar-open");
 
 };
-
 /* ===============================
    PROFILE MENU
 ================================ */

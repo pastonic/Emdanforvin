@@ -1,3 +1,50 @@
+// ===============================
+// AUTO FILL REFERRAL CODE
+// ===============================
+// ===============================
+// AUTO FILL REFERRAL CODE
+// ===============================
+
+const params = new URLSearchParams(window.location.search);
+
+const referralCode = params.get("ref");
+
+const referralInput =
+document.getElementById("referral");
+
+if(referralCode){
+
+    referralInput.value = referralCode;
+
+    referralInput.readOnly = true;
+
+}
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.onclick = () => {
+
+    if(passwordInput.type === "password"){
+
+        passwordInput.type = "text";
+
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
+
+    }else{
+
+        passwordInput.type = "password";
+
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+
+    }
+
+    passwordInput.focus();
+
+};
+
 document.getElementById("registerForm").addEventListener("submit", async (e) => {
 
     e.preventDefault();
@@ -45,5 +92,6 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
 
     // Go directly to Membership
     window.location.href = "membership.html";
+
 
 });

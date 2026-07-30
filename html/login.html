@@ -2,54 +2,88 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="images/logo.png">
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login</title>
+<title>Login | Emdanforvin</title>
+
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet"
+href="css/auth.css">
 
 </head>
 
 <body>
-    
 
-<div class="container">
+<!-- Floating Particles -->
 
-    <div class="card">
-        <img src="images/logo.png"
-     class="login-logo"
-     alt="Emdanforvin Logo">
+<div class="particles">
 
-        
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
-        <h3>Welcome Back</h3>
+</div>
 
-        <form id="loginForm">
+<!-- Card -->
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email Address"
-                required
-            >
+<div class="auth-card">
 
-           <div class="password-box">
+<div class="logo-area">
+
+<img src="images/logo.png" class="logo">
+
+<h2>Welcome Back</h2>
+
+<p>Login to continue your journey.</p>
+
+</div>
+
+<form id="loginForm">
+
+<div class="form-group">
+
+<input
+type="email"
+id="email"
+required>
+
+<label>Email Address</label>
+
+<i class="fa-regular fa-envelope"></i>
+
+</div>
+
+<div class="form-group password-group">
 
 <input
 type="password"
-id="password" placeholder="Password" required >
+id="password"
+required>
+
+<label>Password</label>
+
+
 
 <span id="togglePassword">
-<i class="fa-solid fa-eye"></i>
+
+<i class="fa-solid fa-eye-slash"></i>
+
 </span>
 
 </div>
-<div class="forgot">
+
+<div class="forgot-link">
 
 <a href="forgot-password.html">
 
@@ -59,27 +93,25 @@ Forgot Password?
 
 </div>
 
-            <button type="submit">
+<button type="submit">
 
-                Login
+Login
 
-            </button>
+</button>
 
-        </form>
+</form>
 
-        <p>
+<div class="bottom-link">
 
-            Don't have an account?
+Don't have an account?
 
-            <a href="register.html">
+<a href="register.html">
 
-                Register
+Create One
 
-            </a>
+</a>
 
-        </p>
-
-    </div>
+</div>
 
 </div>
 

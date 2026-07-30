@@ -68,23 +68,28 @@ document.getElementById("password");
 
 const toggle =
 document.getElementById("togglePassword");
+togglePassword.onclick = () => {
 
-toggle.onclick = ()=>{
+    if(password.type === "password"){
 
-if(password.type==="password"){
+        // Show password
 
-password.type="text";
+        password.type = "text";
 
-toggle.innerHTML=
-'<i class="fa-solid fa-eye-slash"></i>';
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
 
-}else{
+    }else{
 
-password.type="password";
+        // Hide password
 
-toggle.innerHTML=
-'<i class="fa-solid fa-eye"></i>';
+        password.type = "password";
 
-}
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+
+    }
+
+    password.focus();
 
 };

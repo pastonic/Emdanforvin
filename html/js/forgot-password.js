@@ -1,70 +1,68 @@
 const password =
 document.getElementById("newPassword");
 
-const toggle =
+const confirmPassword =
+document.getElementById("confirmPassword");
+
+const togglePassword =
 document.getElementById("togglePassword");
 
-toggle.onclick = () => {
+const toggleConfirm =
+document.getElementById("toggleConfirm");
 
-    if(password.type==="password"){
+/* ==========================
+PASSWORD EYE
+========================== */
 
-        password.type="text";
+togglePassword.onclick = () => {
 
-        toggle.innerHTML=
-        '<i class="fa-solid fa-eye-slash"></i>';
+    if(password.type === "password"){
+
+        // Show password
+
+        password.type = "text";
+
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
 
     }else{
 
-        password.type="password";
+        // Hide password
 
-        toggle.innerHTML=
-        '<i class="fa-solid fa-eye"></i>';
+        password.type = "password";
+
+        togglePassword.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
 
     }
 
-};
-
-// SEND CODE
-
-document
-.getElementById("sendCodeBtn")
-.onclick = async () => {
-
-    const email =
-    document.getElementById("email").value;
-
-    const response = await fetch(
-
-        "https://businessserver-7x7f.onrender.com/api/password/send-code",
-
-        {
-
-            method:"POST",
-
-            headers:{
-
-                "Content-Type":"application/json"
-
-            },
-
-            body:JSON.stringify({
-
-                email
-
-            })
-
-        }
-
-    );
-
-    const data =
-    await response.json();
-
-    alert(data.message);
+    password.focus();
 
 };
+toggleConfirm.onclick = () => {
 
-// RESET PASSWORD
+    if(confirmPassword.type === "password"){
+
+        confirmPassword.type = "text";
+
+        toggleConfirm.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
+
+    }else{
+
+        confirmPassword.type = "password";
+
+        toggleConfirm.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+
+    }
+
+    confirmPassword.focus();
+
+};
+/* ==========================
+RESET PASSWORD
+========================== */
 
 document
 .getElementById("resetForm")
@@ -72,56 +70,31 @@ document
 
 e.preventDefault();
 
+const fullname =
+document.getElementById("fullname").value.trim();
+
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
-const code =
-document.getElementById("code").value;
+const phone =
+document.getElementById("phone").value.trim();
 
-const password =
+const newPassword =
 document.getElementById("newPassword").value;
 
-// Verify Code
+const confirm =
+document.getElementById("confirmPassword").value;
 
-let verify = await fetch(
+if(newPassword!==confirm){
 
-"https://businessserver-7x7f.onrender.com/api/password/verify-code",
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-body:JSON.stringify({
-
-email,
-
-code
-
-})
-
-}
-
-);
-
-verify = await verify.json();
-
-if(!verify.success){
-
-alert(verify.message);
+alert("Passwords do not match.");
 
 return;
 
 }
 
-// Reset Password
-
-let reset = await fetch(
+const response =
+await fetch(
 
 "https://businessserver-7x7f.onrender.com/api/password/reset",
 
@@ -137,11 +110,13 @@ headers:{
 
 body:JSON.stringify({
 
+fullname,
+
 email,
 
-code,
+phone,
 
-password
+password:newPassword
 
 })
 
@@ -149,11 +124,12 @@ password
 
 );
 
-reset = await reset.json();
+const data =
+await response.json();
 
-alert(reset.message);
+alert(data.message);
 
-if(reset.success){
+if(data.success){
 
 window.location.href="login.html";
 

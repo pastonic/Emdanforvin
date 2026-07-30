@@ -1,0 +1,1036 @@
+/*==================================
+EMDANFORVIN AUTH UI
+===================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+height:100%;
+
+}
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#f5f7fb;
+
+position:relative;
+
+overflow:hidden;
+
+padding:25px;
+
+}
+
+/*==========================
+BLURRED LOGO
+===========================*/
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:url("../images/logo.png")
+center center
+no-repeat;
+
+background-size:55%;
+
+opacity:.08;
+
+filter:blur(20px);
+
+transform:scale(1.25);
+
+z-index:-3;
+
+}
+
+/* Soft White Layer */
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+rgba(255,255,255,.82);
+
+backdrop-filter:blur(4px);
+
+z-index:-2;
+
+}
+
+/*==========================
+FLOATING PARTICLES
+===========================*/
+
+.particles{
+
+position:absolute;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+.particles span{
+
+position:absolute;
+
+display:block;
+
+border-radius:50%;
+
+background:#2f66ff33;
+
+animation:float 18s linear infinite;
+
+}
+
+.particles span:nth-child(1){
+
+width:10px;
+height:10px;
+left:4%;
+animation-duration:17s;
+
+}
+
+.particles span:nth-child(2){
+
+width:18px;
+height:18px;
+left:18%;
+animation-duration:25s;
+
+}
+
+.particles span:nth-child(3){
+
+width:12px;
+height:12px;
+left:35%;
+animation-duration:21s;
+
+}
+
+.particles span:nth-child(4){
+
+width:20px;
+height:20px;
+left:52%;
+animation-duration:28s;
+
+}
+
+.particles span:nth-child(5){
+
+width:8px;
+height:8px;
+left:70%;
+animation-duration:16s;
+
+}
+
+.particles span:nth-child(6){
+
+width:14px;
+height:14px;
+left:82%;
+animation-duration:23s;
+
+}
+
+.particles span:nth-child(7){
+
+width:16px;
+height:16px;
+left:92%;
+animation-duration:19s;
+
+}
+
+.particles span:nth-child(8){
+
+width:11px;
+height:11px;
+left:60%;
+animation-duration:26s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:.65;
+
+}
+
+85%{
+
+opacity:.35;
+
+}
+
+100%{
+
+transform:translateY(-120px);
+
+opacity:0;
+
+}
+
+}
+
+/*==========================
+CARD
+===========================*/
+
+.auth-card{
+
+width:100%;
+
+max-width:430px;
+
+padding:30px 30px;
+
+
+border-radius:28px;
+
+background:rgba(255,255,255,.28);
+
+backdrop-filter:blur(22px);
+
+border:1px solid rgba(255,255,255,.55);
+
+box-shadow:
+
+0 15px 60px rgba(0,0,0,.12);
+
+animation:showCard .8s ease;
+
+}
+
+@keyframes showCard{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+/*==================================
+LOGO AREA
+===================================*/
+
+.logo-area{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+.logo{
+
+width:95px;
+
+margin-bottom:15px;
+
+animation:logoPulse 5s ease-in-out infinite;
+
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.15));
+
+}
+
+.logo-area h2{
+
+font-size:24px;
+
+font-weight:600;
+
+color:#0f172a;
+
+margin-bottom:5px;
+
+}
+
+.logo-area p{
+
+font-size:13px;
+
+color:#64748b;
+
+line-height:1.5;
+
+}
+
+@keyframes logoPulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/*==================================
+FORM
+===================================*/
+
+form{
+
+width:100%;
+
+}
+
+/*==================================
+FLOATING INPUTS
+===================================*/
+
+.form-group{
+
+position:relative;
+
+margin:20px 0;
+
+}
+
+.form-group input{
+
+width:100%;
+
+background:transparent;
+
+border:none;
+
+outline:none;
+
+padding:14px 40px 12px 0;
+
+font-size:16px;
+
+color:#111827;
+
+border-bottom:2px solid rgba(100,116,139,.35);
+
+transition:.35s;
+
+}
+
+.form-group input:focus{
+
+border-color:#2563eb;
+
+}
+
+.form-group label{
+
+position:absolute;
+
+left:0;
+
+top:14px;
+
+font-size:15px;
+
+color:#64748b;
+
+pointer-events:none;
+
+transition:.35s;
+
+}
+
+.form-group input:focus+label,
+
+.form-group input:valid+label{
+
+top:-10px;
+
+font-size:12px;
+
+font-weight:600;
+
+color:#2563eb;
+
+}
+
+/*==================================
+UNDERLINE EFFECT
+===================================*/
+
+.form-group::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:0;
+
+height:2px;
+
+background:#2563eb;
+
+transition:.35s;
+
+}
+
+.form-group:focus-within::after{
+
+width:100%;
+
+}
+
+/*==================================
+ICONS
+===================================*/
+
+.form-group i{
+
+position:absolute;
+
+right:0;
+
+top:15px;
+
+font-size:17px;
+
+color:#64748b;
+
+transition:.3s;
+
+}
+
+.form-group:focus-within i{
+
+color:#2563eb;
+
+}
+
+/*==================================
+PASSWORD ICON
+===================================*/
+
+.password-group{
+
+position:relative;
+
+}
+
+.lock{
+
+right:42px !important;
+
+}
+
+.password-group span{
+
+position:absolute;
+
+right:0;
+
+top:15px;
+
+cursor:pointer;
+
+font-size:17px;
+
+color:#64748b;
+
+transition:.3s;
+
+}
+
+.password-group span:hover{
+
+color:#2563eb;
+
+transform:scale(1.15);
+
+}
+
+/*==================================
+BUTTON
+===================================*/
+
+button{
+
+width:100%;
+
+height:48px;
+
+border:none;
+
+border-radius:16px;
+
+background:linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+margin-top:20px;
+
+transition:.35s;
+
+box-shadow:
+0 10px 25px rgba(37,99,235,.30);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 18px 35px rgba(37, 100, 236, 0.4);
+color: rgba(0, 31, 99, 0.4);
+background: transparent;
+
+}
+
+button:active{
+
+transform:scale(.98);
+background-color: #0f172a;
+
+}
+
+/*==================================
+FORGOT PASSWORD
+===================================*/
+
+.forgot-link{
+
+text-align:right;
+
+margin-top:-8px;
+
+margin-bottom:18px;
+
+}
+
+.forgot-link a{
+
+text-decoration:none;
+
+font-size:14px;
+
+font-weight:500;
+
+color:#2563eb;
+
+transition:.3s;
+
+}
+
+.forgot-link a:hover{
+
+color:#1e40af;
+
+}
+
+/*==================================
+BOTTOM LINK
+===================================*/
+
+.bottom-link{
+
+margin-top:28px;
+
+text-align:center;
+
+font-size:14px;
+
+color:#64748b;
+
+}
+
+.bottom-link a{
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#2563eb;
+
+margin-left:5px;
+
+transition:.3s;
+
+}
+
+.bottom-link a:hover{
+
+color:#1e40af;
+
+}
+
+/*==================================
+MESSAGE BOX
+===================================*/
+
+#message{
+
+margin-top:15px;
+
+font-size:14px;
+
+text-align:center;
+
+font-weight:500;
+
+}
+
+.success{
+
+background:#dcfce7;
+
+color:#166534;
+
+padding:12px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+.error{
+
+background:#fee2e2;
+
+color:#991b1b;
+
+padding:12px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+/*==================================
+CARD HOVER
+===================================*/
+
+.auth-card{
+
+transition:.45s;
+
+}
+
+.auth-card:hover{
+
+transform:translateY(-4px);
+
+}
+
+/*==================================
+INPUT HOVER
+===================================*/
+
+.form-group input:hover{
+
+border-color:#3b82f6;
+
+}
+
+/*==================================
+SMOOTH LINKS
+===================================*/
+
+a{
+
+transition:.3s;
+
+}
+
+/*==================================
+SELECTION
+===================================*/
+
+::selection{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+/*==================================
+PART 4
+RESPONSIVE + FINAL POLISH
+===================================*/
+
+/* Smooth page appearance */
+
+body{
+
+animation:fadePage .8s ease;
+
+}
+
+@keyframes fadePage{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* Nice cursor on buttons */
+
+button,
+.password-group span,
+a{
+
+cursor:pointer;
+
+}
+
+/* Remove ugly autofill color */
+
+input:-webkit-autofill{
+
+-webkit-box-shadow:0 0 0 1000px transparent inset;
+
+-webkit-text-fill-color:#111827;
+
+transition:background-color 9999s;
+
+}
+
+/* Placeholder hidden */
+
+.form-group input::placeholder{
+
+color:transparent;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:transparent;
+
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.auth-card{
+
+padding:30px 25px;
+
+border-radius:22px;
+
+width:95%;
+
+}
+
+.logo{
+
+width:75px;
+
+}
+
+.logo-area h2{
+
+font-size:24px;
+
+}
+
+.logo-area p{
+
+font-size:14px;
+
+}
+
+.form-group{
+
+margin:24px 0;
+
+}
+
+.form-group input{
+
+font-size:15px;
+
+padding:14px 38px 12px 0;
+
+}
+
+button{
+
+height:50px;
+
+font-size:15px;
+
+border-radius:14px;
+
+}
+
+.bottom-link{
+
+font-size:13px;
+
+}
+
+}
+
+/* ==========================
+TABLETS
+========================== */
+
+@media(min-width:769px) and (max-width:1100px){
+
+.auth-card{
+
+max-width:460px;
+
+}
+
+}
+
+/* ==========================
+LARGE SCREENS
+========================== */
+
+@media(min-width:1101px){
+
+.auth-card{
+
+max-width:450px;
+
+}
+
+.logo{
+
+width:100px;
+
+}
+
+.logo-area h2{
+
+font-size:31px;
+
+}
+
+}
+
+/* ==========================
+SUBTLE SHADOW
+========================== */
+
+.auth-card{
+
+box-shadow:
+
+0 25px 60px rgba(15,23,42,.12),
+
+0 8px 20px rgba(15,23,42,.08);
+
+}
+
+/* ==========================
+INPUT TRANSITION
+========================== */
+
+.form-group input{
+
+transition:
+
+border-color .35s,
+
+transform .35s;
+
+}
+
+.form-group input:focus{
+
+transform:translateY(-2px);
+
+}
+
+/* ==========================
+BUTTON TRANSITION
+========================== */
+
+button{
+
+transition:
+
+transform .35s,
+
+box-shadow .35s,
+
+background .35s;
+
+}
+
+/* ==========================
+LOGO HOVER
+========================== */
+
+.logo:hover{
+
+transform:scale(1.05);
+
+transition:.4s;
+
+}
+
+/* ==========================
+CARD ANIMATION
+========================== */
+
+.auth-card{
+
+animation:
+
+showCard .8s ease,
+
+floatCard 6s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+input[readonly]{
+
+background:#eef5ff;
+
+color:#2563eb;
+
+font-weight:700;
+
+cursor:not-allowed;
+
+border-bottom:2px solid #2563eb;
+
+}
