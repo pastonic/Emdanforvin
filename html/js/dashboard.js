@@ -60,9 +60,6 @@ async function loadDashboard() {
         document.getElementById("membershipCard").innerText =
             user.status;
 
-        document.getElementById("avatar").innerText =
-            user.fullname.charAt(0).toUpperCase();
-
     }
 
     catch(err){
@@ -86,6 +83,8 @@ async function loadProfile() {
         if (!data.success) return;
 
         const user = data.user;
+        document.getElementById("referralCode").value =
+user.referral_code;
 
         document.getElementById("questionWallet").innerText =
            "GHS " + Number(user.token_balance).toFixed(2);
@@ -98,6 +97,24 @@ async function loadProfile() {
 
 document.getElementById("referralLink").value =
 referralLink;
+document
+.getElementById("copyCodeBtn")
+.onclick = () => {
+
+    navigator.clipboard.writeText(user.referral_code);
+
+    alert("Referral code copied.");
+
+};
+document
+.getElementById("copyReferralBtn")
+.onclick = () => {
+
+    navigator.clipboard.writeText(referralLink);
+
+    alert("Referral link copied.");
+
+};
     }
 
     catch(err){

@@ -15,6 +15,7 @@ document.getElementById("referral");
 if(referralCode){
 
     referralInput.value = referralCode;
+    referralInput.dispatchEvent(new Event("input"));
 
     referralInput.readOnly = true;
 
