@@ -384,6 +384,7 @@ animation:fadeUp 1s ease;
 width:120px;
 
 margin-bottom:20px;
+margin-left: 145px;
 
 animation:breathe 5s infinite;
 
@@ -1021,7 +1022,7 @@ font-size:22px;
 
 .hero-logo{
 
-width:90px;
+width:120px;
 
 }
 
