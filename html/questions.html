@@ -27,30 +27,57 @@
 
         <form id="questionForm">
 
-            <div class="quiz-header">
+    <div id="quizIntro">
 
-<div class="timer-box">
+        <h3>📋 Instructions</h3>
 
-⏳ Time Left
+        <ul class="instructions">
 
-<span id="timer">
+            <li>You have <strong>40 seconds</strong> to complete today's quiz.</li>
 
-00:40
+            <li>There are <strong>10 questions</strong>.</li>
 
-</span>
+            <li>Each question has only one correct answer.</li>
 
-</div>
+            <li>You can only answer today's quiz once.</li>
 
-</div>
+            <li>Your answers will be submitted automatically when the timer reaches zero.</li>
 
-            <div id="questions"></div>
+        </ul>
 
-            <button type="submit" class="submitBtn">
-                Submit Answers
-            </button>
+        <button type="button" id="startQuizBtn" class="start-btn">
 
-        </form>
+            ▶ Start Quiz
 
+        </button>
+
+    </div>
+
+    <div id="quizArea" style="display:none;">
+
+        <div class="quiz-header">
+
+            <div class="timer-box">
+
+                ⏳ Time Left
+
+                <span id="timer">00:40</span>
+
+            </div>
+
+        </div>
+
+        <div id="questions"></div>
+
+        <button type="submit" class="submitBtn">
+
+            Submit Answers
+
+        </button>
+
+    </div>
+
+</form>
     </div>
 
 </div>
