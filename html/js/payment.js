@@ -2,7 +2,7 @@ const payBtn = document.getElementById("payBtn");
 
 payBtn.addEventListener("click", async () => {
 
-    const email = localStorage.getItem("email");
+   const userId = localStorage.getItem("userId");
 
     const response = await fetch(
         "https://businessserver-7x7f.onrender.com/api/payment/initialize",
@@ -11,9 +11,9 @@ payBtn.addEventListener("click", async () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                email
-            })
+           body: JSON.stringify({
+    userId
+})
         }
     );
 
@@ -26,7 +26,7 @@ payBtn.addEventListener("click", async () => {
 
     let handler = PaystackPop.setup({
 
-        key: "pk_test_YOUR_PUBLIC_KEY",
+        key: "pk_live_e9fda60773861653ae-f6a8b7fa6f75718c483298",
 
         email: email,
 
@@ -34,13 +34,12 @@ payBtn.addEventListener("click", async () => {
 
         ref: data.data.reference,
 
-        callback: function () {
+        callback: function (response) {
 
-            alert("Payment Successful");
+    window.location =
+    `payment-success.html?reference=${response.reference}&userId=${userId}`;
 
-            window.location = "dashboard.html";
-
-        },
+},
 
         onClose: function () {
 
