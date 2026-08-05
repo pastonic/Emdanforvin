@@ -26,7 +26,7 @@ payBtn.addEventListener("click", async () => {
 
     let handler = PaystackPop.setup({
 
-        key: "pk_live_e9fda60773861653ae-f6a8b7fa6f75718c483298",
+        key: "pk_live_e9fda60773861653aef6a8b7fa6f75718c483298",
 
         email: email,
 
